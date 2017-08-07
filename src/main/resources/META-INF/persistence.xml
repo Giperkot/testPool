@@ -1,0 +1,47 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="kis" transaction-type="JTA">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!--        <jta-data-source>jdbc/exampleDev</jta-data-source>-->
+
+
+        <shared-cache-mode>ALL</shared-cache-mode>
+        <properties>
+            <property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider"/>
+            <property name="hibernate.c3p0.min_size" value = "5"/>
+            <property name="hibernate.c3p0.max_size" value = "20" />
+            <property name="hibernate.c3p0.timeout" value = "300"/>
+            <property name="hibernate.c3p0.max_statements" value =  "50"/>
+            <property name="hibernate.c3p0.idle_test_period" value = "3000"/>
+            <property name="hibernate.connection.driver_class" value ="org.postgresql.Driver"/>
+            <property name="hibernate.connection.url" value = "jdbc:postgresql://127.0.0.1:5432/unit_dev"/>
+            <property name="hibernate.connection.username" value = "unit_dev"/>
+            <property name="hibernate.connection.password" value = "unit_dev"/>
+            <property name="hibernate.connection.autocommit" value = "true"/>
+
+<!--            <property name="hibernate.connection.provider_class" value = "org.hibernate.hikaricp.internal.HikariCPConnectionProvider"/>
+            <property name="hibernate.hikari.dataSourceClassName" value = "org.postgresql.ds.PGPoolingDataSource"/>
+            <property name="hibernate.hikari.dataSource.url" value = "jdbc:postgresql://127.0.0.1:5432/unit_dev"/>
+            <property name="hibernate.hikari.username" value = "unit_dev"/>
+            <property name="hibernate.hikari.password" value = "unit_dev"/>-->
+            <!--            <property name="hibernate.hikari.autoCommit" value = "false"/>-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL94Dialect"/>
+            <property name="hibernate.id.new_generator_mappings" value="false"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform" />
+            <property name="hibernate.flushMode" value="COMMIT"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.jdbc.batch.builder" value="ru.orgunit.config.NoCountBatchBuilder"/>
+            <!--TODO test solving "This web container has not yet been started"-->
+            <property name="hibernate.classloading.use_current_tccl_as_parent" value="false" />
+            <property name="org.hibernate.envers.audit_table_prefix" value=""/>
+            <property name="org.hibernate.envers.audit_table_suffix" value="_changelogs"/>
+            <property name="org.hibernate.envers.revision_field_name" value="common_changelog_id"/>
+            <property name="org.hibernate.envers.revision_type_field_name" value="change_type"/>
+            <property name="org.hibernate.envers.modified_flag_suffix" value="modified"/>
+        </properties>
+    </persistence-unit>
+</persistence>

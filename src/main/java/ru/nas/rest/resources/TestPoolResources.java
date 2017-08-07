@@ -24,7 +24,8 @@ public class TestPoolResources {
     private TestPool pool;
 
     @GET
-    public Response select(@QueryParam("id") UUID id) {
+    public Response select(@QueryParam("id") String id) {
+        pool.testPool(id);
         return Response.ok().build();
     }
 }
