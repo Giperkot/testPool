@@ -85,17 +85,17 @@
         </dependency>
 
 
-        <!--        <dependency>
+                <dependency>
                     <groupId>org.hibernate</groupId>
                     <artifactId>hibernate-hikaricp</artifactId>
                     <version>${hibernate.version}</version>
-                </dependency>-->
+                </dependency>
 
-<!--        <dependency>
+        <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>2.6.3</version>
-        </dependency>-->
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
